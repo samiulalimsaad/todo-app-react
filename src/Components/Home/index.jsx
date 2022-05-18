@@ -2,11 +2,13 @@ import React, { useState } from "react";
 import { useQuery } from "react-query";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import useTitle from "../Utilities/useTitle";
 import AddTodo from "./AddTodo";
 import ConfirmationModal from "./ConfirmationModal";
 import Todos from "./Todos";
 
 const Home = () => {
+    useTitle("Home");
     const [deleteTodo, setDeleteTodo] = useState({});
     const navigate = useNavigate();
     const { isLoading, error, data, refetch } = useQuery("repoData", () =>
@@ -32,7 +34,7 @@ const Home = () => {
 
     if (isLoading) {
         return (
-            <div className="flex justify-center items-center h-screen text-4xl text-primary">
+            <div className="flex items-center justify-center h-screen text-4xl text-primary">
                 Loading...
             </div>
         );
@@ -40,15 +42,15 @@ const Home = () => {
 
     if (error) {
         return (
-            <div className="flex justify-center items-center h-screen text-4xl text-primary">
+            <div className="flex items-center justify-center h-screen text-4xl text-primary">
                 {"An error has occurred: " + error.message}
             </div>
         );
     }
     return (
-        <div className="flex justify-center text-4xl text-primary p-20 ">
-            <div className="p-20 space-y-8 w-full">
-                <div className="flex justify-center items-center text-4xl text-primary">
+        <div className="flex justify-center p-20 text-4xl text-primary ">
+            <div className="w-full p-20 space-y-8">
+                <div className="flex items-center justify-center text-4xl text-primary">
                     <AddTodo refetch={refetch} />
                 </div>
                 {data?.allTodo?.length > 0 && (
