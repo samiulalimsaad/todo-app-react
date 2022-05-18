@@ -16,7 +16,6 @@ const Home = () => {
             },
         })
             .then((res) => {
-                console.log(res);
                 if (res?.status === 401 || res?.status === 403) {
                     toast.error("unauthorized user", {
                         theme: "dark",
@@ -27,7 +26,6 @@ const Home = () => {
                 return res.json();
             })
             .catch(({ message }) => {
-                console.log(message);
                 throw new Error(message);
             })
     );

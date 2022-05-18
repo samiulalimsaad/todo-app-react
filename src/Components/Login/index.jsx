@@ -23,8 +23,6 @@ const Login = () => {
                     password,
                 })
                 .then(({ data }) => {
-                    console.log(data);
-
                     if (data.success) {
                         localStorage.setItem("accessToken", data.token);
                         navigate("/");

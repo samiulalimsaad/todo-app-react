@@ -11,7 +11,7 @@ const AddTodo = ({ refetch }) => {
         if (title || description) {
             axios
                 .post(
-                    "https://todo-app-react-saad.herokuapp.com/login",
+                    "https://todo-app-react-saad.herokuapp.com/",
                     {
                         title,
                         description,
