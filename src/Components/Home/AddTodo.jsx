@@ -10,9 +10,8 @@ const AddTodo = ({ refetch }) => {
 
         if (title || description) {
             axios
-                // .post("https://todo-app-react-saad.herokuapp.com/login", {
                 .post(
-                    "http://localhost:5000/",
+                    "https://todo-app-react-saad.herokuapp.com/login",
                     {
                         title,
                         description,
@@ -34,7 +33,7 @@ const AddTodo = ({ refetch }) => {
                     }
                 })
                 .catch(({ message }) => {
-                    toast.error("failed to added todo!", {
+                    toast.error(message, {
                         theme: "dark",
                     });
                 });
