@@ -27,7 +27,7 @@ const Login = () => {
 
                     if (data.success) {
                         localStorage.setItem("accessToken", data.token);
-                        navigate("/todos");
+                        navigate("/");
                     }
                 })
                 .catch(({ message }) => setError(message));
